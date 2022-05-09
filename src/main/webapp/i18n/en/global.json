@@ -12,6 +12,8 @@
         "simMangmentToolBucket": "Bucket",
         "simMangmentToolAlert": "Alert",
         "simMangmentToolActiveAlert": "Active Alert",
+        "simMangmentToolRole": "Role",
+        "simMangmentToolUsers": "Users",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

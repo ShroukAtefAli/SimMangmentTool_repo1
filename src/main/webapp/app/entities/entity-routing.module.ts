@@ -29,6 +29,16 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'simMangmentToolApp.simMangmentToolActiveAlert.home.title' },
         loadChildren: () => import('./SimMangmentTool/active-alert/active-alert.module').then(m => m.SimMangmentToolActiveAlertModule),
       },
+      {
+        path: 'role',
+        data: { pageTitle: 'simMangmentToolApp.simMangmentToolRole.home.title' },
+        loadChildren: () => import('./SimMangmentTool/role/role.module').then(m => m.SimMangmentToolRoleModule),
+      },
+      {
+        path: 'users',
+        data: { pageTitle: 'simMangmentToolApp.simMangmentToolUsers.home.title' },
+        loadChildren: () => import('./SimMangmentTool/users/users.module').then(m => m.SimMangmentToolUsersModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

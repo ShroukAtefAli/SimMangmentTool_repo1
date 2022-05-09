@@ -74,7 +74,7 @@ public class Dial implements Serializable {
     private Set<ActiveAlert> activeAlerts = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "dials", "buckets" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "dials", "buckets", "users" }, allowSetters = true)
     private Customer customer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

@@ -46,7 +46,7 @@ public class Bucket implements Serializable {
     private Dial dial;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "dials", "buckets" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "dials", "buckets", "users" }, allowSetters = true)
     private Customer customer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
