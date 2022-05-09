@@ -51,6 +51,18 @@ entity ActiveAlert{
     activeAlertEmailMessageActive Boolean,
     activeAlertPeriod AlertPeriod,
     }
+entity Role{
+    roleName String required
+    }
+    
+entity User{
+    userName String required,
+    userPassword String required,
+    userRoleId Long required,
+    userEmail String required,
+    userDial Long required,
+    }
+	
 enum AlertPeriod{
     Daily,
     Weekly,
@@ -62,7 +74,9 @@ relationship OneToMany {
     Customer to Bucket
 }
 
-
+relationship OneToMany{
+     Role to User
+}
 relationship OneToMany {
 	Dial to ActiveAlert
 }
