@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220509140924",
+  "clientRootFolder": "SimMangmentTool",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "role",
+  "fields": [
+    {
+      "fieldName": "roleName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "SimMangmentTool",
+  "name": "Role",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "users",
+      "otherEntityRelationshipName": "role",
+      "relationshipName": "users",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

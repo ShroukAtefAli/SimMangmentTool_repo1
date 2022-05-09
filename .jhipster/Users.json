@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20220509140925",
+  "clientRootFolder": "SimMangmentTool",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "users",
+  "fields": [
+    {
+      "fieldName": "userName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "userPassword",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "userEmail",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "userDial",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "SimMangmentTool",
+  "name": "Users",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "users",
+      "relationshipName": "customer",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "role",
+      "otherEntityRelationshipName": "users",
+      "relationshipName": "role",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

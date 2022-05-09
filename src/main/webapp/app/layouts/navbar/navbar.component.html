@@ -103,6 +103,30 @@
                 <span jhiTranslate="global.menu.entities.simMangmentToolActiveAlert">Active Alert</span>
               </a>
             </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="simmangmenttool/role"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="collapseNavbar()"
+              >
+                <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.entities.simMangmentToolRole">Role</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="simmangmenttool/users"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="collapseNavbar()"
+              >
+                <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.entities.simMangmentToolUsers">Users</span>
+              </a>
+            </li>
             <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
           </ul>
         </li>

@@ -51,6 +51,12 @@
       "otherEntityRelationshipName": "customer",
       "relationshipName": "bucket",
       "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "users",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "users",
+      "relationshipType": "one-to-many"
     }
   ],
   "service": "no"

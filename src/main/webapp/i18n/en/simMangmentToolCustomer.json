@@ -25,7 +25,8 @@
       "customerIdHight": "Customer Id Hight",
       "customerCode": "Customer Code",
       "dial": "Dial",
-      "bucket": "Bucket"
+      "bucket": "Bucket",
+      "users": "Users"
     }
   }
 }

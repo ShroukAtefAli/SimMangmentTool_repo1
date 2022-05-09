@@ -1,0 +1,140 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-users-heading"
+        data-cy="UsersCreateUpdateHeading"
+        jhiTranslate="simMangmentToolApp.simMangmentToolUsers.home.createOrEditLabel"
+      >
+        Create or edit a Users
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="simMangmentToolApp.simMangmentToolUsers.userName" for="field_userName">User Name</label>
+          <input type="text" class="form-control" name="userName" id="field_userName" data-cy="userName" formControlName="userName" />
+          <div *ngIf="editForm.get('userName')!.invalid && (editForm.get('userName')!.dirty || editForm.get('userName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('userName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="simMangmentToolApp.simMangmentToolUsers.userPassword" for="field_userPassword"
+            >User Password</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="userPassword"
+            id="field_userPassword"
+            data-cy="userPassword"
+            formControlName="userPassword"
+          />
+          <div
+            *ngIf="editForm.get('userPassword')!.invalid && (editForm.get('userPassword')!.dirty || editForm.get('userPassword')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('userPassword')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="simMangmentToolApp.simMangmentToolUsers.userEmail" for="field_userEmail"
+            >User Email</label
+          >
+          <input type="text" class="form-control" name="userEmail" id="field_userEmail" data-cy="userEmail" formControlName="userEmail" />
+          <div *ngIf="editForm.get('userEmail')!.invalid && (editForm.get('userEmail')!.dirty || editForm.get('userEmail')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('userEmail')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="simMangmentToolApp.simMangmentToolUsers.userDial" for="field_userDial">User Dial</label>
+          <input type="number" class="form-control" name="userDial" id="field_userDial" data-cy="userDial" formControlName="userDial" />
+          <div *ngIf="editForm.get('userDial')!.invalid && (editForm.get('userDial')!.dirty || editForm.get('userDial')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('userDial')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('userDial')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="simMangmentToolApp.simMangmentToolUsers.customer" for="field_customer">Customer</label>
+          <select class="form-control" id="field_customer" data-cy="customer" name="customer" formControlName="customer">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption"
+              *ngFor="let customerOption of customersSharedCollection; trackBy: trackCustomerById"
+            >
+              {{ customerOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="simMangmentToolApp.simMangmentToolUsers.role" for="field_role">Role</label>
+          <select class="form-control" id="field_role" data-cy="role" name="role" formControlName="role">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="roleOption.id === editForm.get('role')!.value?.id ? editForm.get('role')!.value : roleOption"
+              *ngFor="let roleOption of rolesSharedCollection; trackBy: trackRoleById"
+            >
+              {{ roleOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

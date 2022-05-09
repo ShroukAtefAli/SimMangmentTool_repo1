@@ -54,6 +54,11 @@ public class Customer implements Serializable {
     @JsonIgnoreProperties(value = { "dial", "customer" }, allowSetters = true)
     private Set<Bucket> buckets = new HashSet<>();
 
+    @OneToMany(mappedBy = "customer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "customer", "role" }, allowSetters = true)
+    private Set<Users> users = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -206,6 +211,37 @@ public class Customer implements Serializable {
     public Customer removeBucket(Bucket bucket) {
         this.buckets.remove(bucket);
         bucket.setCustomer(null);
+        return this;
+    }
+
+    public Set<Users> getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(Set<Users> users) {
+        if (this.users != null) {
+            this.users.forEach(i -> i.setCustomer(null));
+        }
+        if (users != null) {
+            users.forEach(i -> i.setCustomer(this));
+        }
+        this.users = users;
+    }
+
+    public Customer users(Set<Users> users) {
+        this.setUsers(users);
+        return this;
+    }
+
+    public Customer addUsers(Users users) {
+        this.users.add(users);
+        users.setCustomer(this);
+        return this;
+    }
+
+    public Customer removeUsers(Users users) {
+        this.users.remove(users);
+        users.setCustomer(null);
         return this;
     }
 

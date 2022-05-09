@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="users">
+      <h2 data-cy="usersDetailsHeading"><span jhiTranslate="simMangmentToolApp.simMangmentToolUsers.detail.title">Users</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ users.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="simMangmentToolApp.simMangmentToolUsers.userName">User Name</span></dt>
+        <dd>
+          <span>{{ users.userName }}</span>
+        </dd>
+        <dt><span jhiTranslate="simMangmentToolApp.simMangmentToolUsers.userPassword">User Password</span></dt>
+        <dd>
+          <span>{{ users.userPassword }}</span>
+        </dd>
+        <dt><span jhiTranslate="simMangmentToolApp.simMangmentToolUsers.userEmail">User Email</span></dt>
+        <dd>
+          <span>{{ users.userEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="simMangmentToolApp.simMangmentToolUsers.userDial">User Dial</span></dt>
+        <dd>
+          <span>{{ users.userDial }}</span>
+        </dd>
+        <dt><span jhiTranslate="simMangmentToolApp.simMangmentToolUsers.customer">Customer</span></dt>
+        <dd>
+          <div *ngIf="users.customer">
+            <a [routerLink]="['/customer', users.customer?.id, 'view']">{{ users.customer?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="simMangmentToolApp.simMangmentToolUsers.role">Role</span></dt>
+        <dd>
+          <div *ngIf="users.role">
+            <a [routerLink]="['/role', users.role?.id, 'view']">{{ users.role?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/simmangmenttool/users', users.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
